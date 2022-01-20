@@ -34,6 +34,8 @@ else:
 
 #Load the Caffe model 
 net = cv2.dnn.readNetFromCaffe(args.prototxt, args.weights)
+#Setting Openvino as DNN Backend
+net.setPreferableBackend(cv2.dnn.DNN_BACKEND_INFERENCE_ENGINE)
 
 while True:
     # Capture frame-by-frame
